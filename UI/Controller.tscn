@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://UI/Big.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/lineLight39.png" type="Texture" id=2]
+[ext_resource path="res://UI/lineLight36.png" type="Texture" id=3]
+[ext_resource path="res://UI/lineLight34.png" type="Texture" id=4]
+[ext_resource path="res://UI/Direction.tscn" type="PackedScene" id=5]
+[ext_resource path="res://UI/Controller.gd" type="Script" id=6]
+[ext_resource path="res://UI/lineLight35.png" type="Texture" id=7]
+
+[node name="Controller" type="Node"]
+script = ExtResource( 6 )
+navigation = false
+buttons = false
+
+[node name="Analog" type="CanvasLayer" parent="."]
+
+[node name="Node2D" type="Node2D" parent="Analog"]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Big" parent="Analog/Node2D" instance=ExtResource( 1 )]
+
+[node name="Navigation" type="CanvasLayer" parent="."]
+
+[node name="Node2D" type="Node2D" parent="Navigation"]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Direction" parent="Navigation/Node2D" instance=ExtResource( 5 )]
+
+[node name="Buttons" type="CanvasLayer" parent="."]
+
+[node name="Node2D" type="Node2D" parent="Buttons"]
+position = Vector2( 270, 110 )
+
+[node name="TouchScreenButtonR" type="TouchScreenButton" parent="Buttons/Node2D"]
+position = Vector2( -30, 0 )
+scale = Vector2( 0.35, 0.35 )
+normal = ExtResource( 2 )
+action = "roll"
+
+[node name="TouchScreenButtonA" type="TouchScreenButton" parent="Buttons/Node2D"]
+position = Vector2( 30, 0 )
+scale = Vector2( 0.35, 0.35 )
+normal = ExtResource( 4 )
+action = "attack"
+
+[node name="TouchScreenButtonX" type="TouchScreenButton" parent="Buttons/Node2D"]
+position = Vector2( 0, -30 )
+scale = Vector2( 0.35, 0.35 )
+normal = ExtResource( 3 )
+action = "click"
+
+[node name="TouchScreenButtonB" type="TouchScreenButton" parent="Buttons/Node2D"]
+position = Vector2( 0, 30 )
+scale = Vector2( 0.35, 0.35 )
+normal = ExtResource( 7 )
